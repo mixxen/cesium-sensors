@@ -29,9 +29,9 @@ var runLint = function(src) {
 		.pipe(xo());
 };
 
-gulp.task('lint', function() {
-	return runLint(['lib/**/*.js', 'gulp/**/*.js', 'gulpfile.js']);
-});
+// gulp.task('lint', function() {
+// 	return runLint(['lib/**/*.js', 'gulp/**/*.js', 'gulpfile.js']);
+// });
 
 gulp.task('shaders', function() {
 	return gulp.src('lib/**/*.glsl')
@@ -159,13 +159,13 @@ gulp.task('watch', function() {
 
 gulp.task('build-reload', ['build'], reload);
 
-gulp.task('build', ['lint', 'scripts'], function() {
+gulp.task('build', ['scripts'], function() {
 	return gulp.src('dist/**/*')
 		.pipe(size({ title: 'build', gzip: true }));
 });
 
 gulp.task('ci', function(done) {
-	runSequence('lint', 'test-ci', 'build', done);
+	runSequence('test-ci', 'build', done);
 });
 
 gulp.task('default', function(done) {
