@@ -11,8 +11,11 @@
   "keywords": [
     "cesium"
   ],
+  "overrides": {
+    "graceful-fs": "^4.2.10"
+  },
   "dependencies": {
-    "cesium": "1.32.1",
+    "cesium": "1.103.0",
     "requirejs": "^2.3.3",
     "requirejs-text": "^2.0.15"
   },
