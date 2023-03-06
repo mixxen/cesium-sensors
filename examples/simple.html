@@ -10,7 +10,7 @@
 	<title>Cesium Sensor Volumes Example</title>
 
 	<link rel="stylesheet" href="../node_modules/cesium/Build/Cesium/Widgets/widgets.css" />
-	<script src="../node_modules/cesium/Build/Cesium/Cesium.js"></script>
+	<script src="../node_modules/cesium/Build/CesiumUnminified/Cesium.js"></script>
 	<script src="../dist/cesium-sensor-volumes.js"></script>
 
 	<style>
@@ -191,7 +191,7 @@
 
 
 		headingPitchRollToFixedFrame = function(origin, heading, pitch, roll, ellipsoid, result) {
-			var hprQuaternion = Cesium.Quaternion.fromHeadingPitchRoll(heading, pitch, roll, scratchHPRQuaternion);
+			var hprQuaternion = Cesium.Quaternion.fromHeadingPitchRoll(new Cesium.HeadingPitchRoll(heading, pitch, roll), scratchHPRQuaternion);
 			var hprMatrix = Cesium.Matrix4.fromTranslationQuaternionRotationScale(Cesium.Cartesian3.ZERO, hprQuaternion, scratchScale, scratchHPRMatrix4);
 			result = Cesium.Transforms.northEastDownToFixedFrame(origin, ellipsoid, result);
 			return Cesium.Matrix4.multiply(result, hprMatrix, result);
